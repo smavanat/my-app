@@ -1,4 +1,4 @@
-function mintingPage() {
+export default function mintingPage() {
     const [likes, setLikes] = React.useState(0);
     function handleClick(){
         setLikes(likes+1);

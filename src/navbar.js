@@ -26,7 +26,7 @@ export default function NavBar() {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Work Experience Project
           </Typography>
-          <Link href= {"../minting/index"} passHref><Button component="a" variant = "contained" color="inherit">Minting</Button></Link>
+          <Link href= {"/minting"} passHref><Button component="a" variant = "contained" color="inherit">Minting</Button></Link>
           <Link href = {"/"} passHref><Button component="a" color="inherit" variant="contained">Home</Button></Link>
         </Toolbar>
       </AppBar>
