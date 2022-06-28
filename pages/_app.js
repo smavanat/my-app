@@ -1,6 +1,4 @@
-import '../styles/globals.css';
-import NavBar from '../src/navbar';
-
+import NavBar from "../src/navbar"
 export default function Home(){
   return(
     <div className="App"><NavBar/></div>

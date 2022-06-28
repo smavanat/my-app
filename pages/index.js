@@ -1,5 +1,5 @@
 import NavBar from '../src/navbar'
-import { Grid } from '@material-ui/core'
+import Grid from '@material-ui/core/Grid'
 import styles from '../styles/Home.module.css'
 
 export default function Test() {
@@ -12,7 +12,7 @@ export default function Test() {
 
 				<Grid container item xs={6} justifyContent="center">
 					<h1 className={styles.title}>
-                        ETHGlobalDAO
+                        Work Experience Project
 					</h1>
 				</Grid>
 

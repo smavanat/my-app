@@ -5,7 +5,8 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
-import {Link} from 'react-router-dom';
+import MenuIcon from '@material-ui/icons/Menu';
+import {Link} from 'next/link';
 
 export default function NavBar() {
   return (
@@ -19,6 +20,7 @@ export default function NavBar() {
             aria-label="menu"
             sx={{ mr: 2 }}
           >
+            <MenuIcon/>
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Work Experience Project
