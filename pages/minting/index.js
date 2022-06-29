@@ -2,6 +2,8 @@ import React from "react";
 import NavBar from "../../src/navbar";
 import { useState } from "react";
 import { useEffect } from "react";
+import { Grid } from "@mui/material";
+import Button from "@mui/material";
 
 export default function mintingPage() {
     const [txError, setTxError] = useState(null)
@@ -9,6 +11,8 @@ export default function mintingPage() {
     const [walletError, setWalletError] = useState(null)
     const [currentAccount, setCurrentAccount] = useState("")
     const [correctNetwork, setCorrectNetwork] = useState(false)
+    const [requestedAccounts, setRequestedAccounts] = useState(false)
+
 
     async function handleClick(){
          
@@ -84,6 +88,7 @@ export default function mintingPage() {
 			// const rinkebyChainId = '0x2a'
 
 			// const devChainId = 1337
+    
       const rinkebyChainId = '0x13881'
 
 			const devChainId = 80001
@@ -132,6 +137,45 @@ export default function mintingPage() {
 	
 	}, [currentAccount])
 
+    const connectWallet = async () => {
+		try {
+			const { ethereum } = window
+
+			if (!ethereum) {
+				setWalletError('Please install MetaMask Wallet.')
+				return
+			}
+			let chainId = await ethereum.request({ method: 'eth_chainId' })
+      // let chainId = await ethereum.request({
+      //     method: 'wallet_switchEthereumChain',
+      //   params: [{ chainId: '0x13881' }], // '0x3830303031'
+      // })
+			// console.log('Connected to chain:' + chainId)
+
+			const rinkebyChainId = '0x13881'
+
+			const devChainId = 80001
+			const localhostChainId = `0x${Number(devChainId).toString(16)}`
+
+      console.log(localhostChainId)
+      console.log(chainId)
+			if (chainId !== rinkebyChainId && chainId !== localhostChainId) {
+				alert('You are not connected to the Polygon Mumbai Testnet!')
+				return
+			}
+
+			// console.log(requestedAccounts)
+			setRequestedAccounts(true)
+
+			const accounts = await ethereum.request({ method: 'eth_requestAccounts' })
+			
+			// console.log('Found account', accounts[0])
+			setCurrentAccount(accounts[0])
+		} catch (error) {
+			// console.log('Error connecting to metamask', error)
+		}
+	}
+
     
     return(
         <div><NavBar/><Grid container item xs={6} justify="center">
@@ -158,7 +202,7 @@ export default function mintingPage() {
 					variant="outlined" disableElevation
 					style={{ border: '2px solid', height: "50px", width: "100%", margin: "2px", marginTop: "40px", maxWidth: "200px" }}
 					aria-label="View Code"
-					onClick={mintDAONFT}
+					onClick={handleClick}
 					// disabled={(nftList.length >= 2 || numMinted == 50)}
 				>
 					Mint NFTs
