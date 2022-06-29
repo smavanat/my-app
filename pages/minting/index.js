@@ -3,7 +3,7 @@ import NavBar from "../../src/navbar";
 import { useState } from "react";
 import { useEffect } from "react";
 import { Grid } from "@mui/material";
-import Button from "@mui/material";
+import Button from "@mui/material/Button";
 
 export default function mintingPage() {
     const [txError, setTxError] = useState(null)
@@ -85,11 +85,11 @@ export default function mintingPage() {
 			let chainId = await ethereum.request({ method: 'eth_chainId' })
 			// console.log('Connected to chain:' + chainId)
 
-			// const rinkebyChainId = '0x2a'
+			 const rinkebyChainId = '0x2a'
 
 			// const devChainId = 1337
     
-      const rinkebyChainId = '0x13881'
+      
 
 			const devChainId = 80001
 			const localhostChainId = `0x${Number(devChainId).toString(16)}`
