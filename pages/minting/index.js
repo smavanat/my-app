@@ -9,12 +9,10 @@ export default function mintingPage() {
     const [currentAccount, setCurrentAccount] = useState("")
     const [correctNetwork, setCorrectNetwork] = useState(false)
 
-    return(
-        <div><NavBar/><button onClick={handleClick}>minting</button></div>
-    );
-
-}
     function handleClick(){
+		console.log("we call this when we click")
+	}
+
       // Checks if wallet is connected
 	const checkIfWalletIsConnected = async () => {
 		const { ethereum } = window
@@ -91,4 +89,8 @@ export default function mintingPage() {
 	}, [currentAccount])
 
     
+    return(
+        <div><NavBar/><button onClick={handleClick}>minting</button></div>
+    );
+
 }
