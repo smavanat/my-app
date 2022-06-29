@@ -134,7 +134,49 @@ export default function mintingPage() {
 
     
     return(
-        <div><NavBar/><button onClick={handleClick}>minting</button></div>
+        <div><NavBar/><Grid container item xs={6} justify="center">
+        {walletError === null ? (
+        currentAccount === "" ? (
+            <Button
+                variant="outlined" disableElevation
+                style={{ border: '2px solid', height: "50px", width: "100%", margin: "2px", marginTop: "80px", maxWidth: "200px" }}
+                aria-label="View Code"
+                disabled={(currentAccount === "" && requestedAccounts)}
+                onClick={connectWallet}
+
+            >
+                Connect Wallet
+            </Button>
+        ) : correctNetwork ? (
+            <div>
+            <Grid container item xs={12} justify="center">
+               <TextField id="outlined-basic" type="number" label="ETH Price Prediction" variant="outlined" style={{marginTop: "50px" }} onChange={handleInputChange}/>
+            </Grid>
+
+            <Grid container item xs={12} justify="center">
+             <Button
+                variant="outlined" disableElevation
+                style={{ border: '2px solid', height: "50px", width: "100%", margin: "2px", marginTop: "40px", maxWidth: "200px" }}
+                aria-label="View Code"
+                onClick={mintDAONFT}
+                // disabled={(nftList.length >= 2 || numMinted == 50)}
+            >
+                Mint NFTs
+            </Button>
+            </Grid>
+            </Grid>
+            </div>
+            </div>
+        )
+    
+    
+    
+    
+    
+    
+    
+    
+    
     );
 
 }
