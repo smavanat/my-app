@@ -9,6 +9,11 @@ export default function mintingPage() {
     const [currentAccount, setCurrentAccount] = useState("")
     const [correctNetwork, setCorrectNetwork] = useState(false)
 
+    return(
+        <div><NavBar/><button onClick={handleClick}>minting</button></div>
+    );
+
+}
     function handleClick(){
       // Checks if wallet is connected
 	const checkIfWalletIsConnected = async () => {
@@ -85,8 +90,5 @@ export default function mintingPage() {
 	
 	}, [currentAccount])
 
-    }
-    return(
-        <div><NavBar/><button onClick={handleClick}>minting</button></div>
-    );
+    
 }
