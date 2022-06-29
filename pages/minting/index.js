@@ -1,5 +1,7 @@
 import React from "react";
 import NavBar from "../../src/navbar";
+import Home from "../nft/index.js";
+import { useState } from "react";
 
 export default function mintingPage() {
     const [likes, setLikes] = React.useState(0);
@@ -7,6 +9,6 @@ export default function mintingPage() {
         setLikes(likes+1);
     }
     return(
-        <div><NavBar/><button onClick={handleClick}>minting({likes})</button></div>
+        <div><NavBar/><button onClick={Home}>minting</button></div>
     );
 }
