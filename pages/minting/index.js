@@ -1,15 +1,15 @@
 import React from "react";
 import NavBar from "../../src/navbar";
-
 import { useState } from "react";
+import { useEffect } from "react";
 
 export default function mintingPage() {
     const [likes, setLikes] = React.useState(0);
-    function handleClick(){
-        const [walletError, setWalletError] = useState(null)
-  const [currentAccount, setCurrentAccount] = useState("")
-  const [correctNetwork, setCorrectNetwork] = useState(false)
+    const [walletError, setWalletError] = useState(null)
+    const [currentAccount, setCurrentAccount] = useState("")
+    const [correctNetwork, setCorrectNetwork] = useState(false)
 
+    function handleClick(){
       // Checks if wallet is connected
 	const checkIfWalletIsConnected = async () => {
 		const { ethereum } = window
@@ -75,7 +75,7 @@ export default function mintingPage() {
 		// 	  console.log(msg)
 		//   })
 
-	  }
+	}
 
   useEffect(() => {
 		checkIfWalletIsConnected()
