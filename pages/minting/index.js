@@ -148,35 +148,34 @@ export default function mintingPage() {
                 Connect Wallet
             </Button>
         ) : correctNetwork ? (
-            <div>
-            <Grid container item xs={12} justify="center">
-               <TextField id="outlined-basic" type="number" label="ETH Price Prediction" variant="outlined" style={{marginTop: "50px" }} onChange={handleInputChange}/>
-            </Grid>
+				<div>
+				<Grid container item xs={12} justify="center">
+				<TextField id="outlined-basic" type="number" label="ETH Price Prediction" variant="outlined" style={{marginTop: "50px" }} onChange={handleInputChange}/>
+				</Grid>
 
-            <Grid container item xs={12} justify="center">
-             <Button
-                variant="outlined" disableElevation
-                style={{ border: '2px solid', height: "50px", width: "100%", margin: "2px", marginTop: "40px", maxWidth: "200px" }}
-                aria-label="View Code"
-                onClick={mintDAONFT}
-                // disabled={(nftList.length >= 2 || numMinted == 50)}
-            >
-                Mint NFTs
-            </Button>
-            </Grid>
-            </Grid>
-            </div>
-            </div>
+				<Grid container item xs={12} justify="center">
+				<Button
+					variant="outlined" disableElevation
+					style={{ border: '2px solid', height: "50px", width: "100%", margin: "2px", marginTop: "40px", maxWidth: "200px" }}
+					aria-label="View Code"
+					onClick={mintDAONFT}
+					// disabled={(nftList.length >= 2 || numMinted == 50)}
+				>
+					Mint NFTs
+				</Button>
+				</Grid>
+				</div>
+				) : (
+						<Paper elevation={0}
+						style={{width: "100%", margin: "2px", marginTop: "80px", maxWidth: "250px", textAlign: "center"}}
+						>
+							Please connect to Polygon Mumbai Testnet
+						</Paper>
+					)) : (
+						<div style={{marginTop: "80px"}}>{walletError}</div>
+					)}
+				</Grid>
+				</div>
         )
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    );
 
 }
